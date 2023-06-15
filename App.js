@@ -3,6 +3,10 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { ImageBackground } from 'react-native';
+import { creteDrawerNavigator} from '@react-navigate/drawer';
+import 'react-native-gesture-handler';
+import { Navigationcontainer } from '@react-navigation/native';
 
 function PeixesScreen({ navigation }) {
   return (
@@ -23,6 +27,7 @@ function PeixesScreen({ navigation }) {
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
+      <ImageBackground source={require('./assets/download.jpeg')} style={styles.image} >
       <View>
         <Text style={styles.texto}>Horóscopo Novotec</Text>
         <Button
@@ -32,6 +37,7 @@ function HomeScreen({ navigation }) {
           onPress={() => navigation.navigate('Horóscopo Peixes')}
         />
       </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -41,7 +47,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{ title: 'Horóscopo Novotec',headerStyle:{backgroundColor:'midnightblue',height:100},headerTintColor:'skyblue',headerTitleStyle:{fontWeight:'100',} }}>
         <Stack.Screen name='Home' component={HomeScreen} options={{ title: 'Horóscopo Novotec',headerStyle:{backgroundColor:'midnightblue',height:100},headerTintColor:'skyblue',headerTitleStyle:{fontWeight:'100',} }} />
         <Stack.Screen name='Horóscopo Peixes' component={PeixesScreen} />
       </Stack.Navigator>
@@ -58,10 +64,15 @@ const styles = StyleSheet.create({
   },
   texto: {
     margin: '5%',
-    color: 'navy',
+    color: 'white',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  image:{
+  justifyContent:'center',
+  flex:1,
+  width:'100%',
   }
 });
 
