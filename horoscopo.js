@@ -1,17 +1,5 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
 
-function Peixes() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.texto1}>Peixes - (19/02 a 20/03)</Text>
-        <Text style={styles.texto2}>Texto</Text>
-      </View>
-    </SafeAreaView>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -20,17 +8,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  texto1: {
-    fontSize: 20,
+
+  texto1:{
+    fontSize: '200%',
     margin: '5%',
     color: 'navy',
-    paddingTop: '2%',
+    paddingTop:'2%'
   },
-  texto2: {
-    fontSize: 14,
+
+  texto2:{
+    fontSize: '100%',
     margin: '1%',
     textAlign: 'center',
-    paddingTop: '2%',
+    marginTop: '5%'
   },
 });
 
